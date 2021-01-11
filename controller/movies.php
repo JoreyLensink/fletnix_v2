@@ -33,10 +33,10 @@ EOD;
 // //begin code voor films ophalen
 
 
-function valueMovie($dbh){
+function valueMovie($dbh, $value){
 $users       = $dbh->query('SELECT * FROM Movie WHERE movie_id  <= 99');
 foreach ($users as $row) {
-    return $row["title"] . "<br/>";
+    return $row[$value] . "<br/>";
 }
 
 $users->execute();
@@ -45,10 +45,6 @@ $users->execute();
     
     
    
-
-
-
-
 
 // Query uitvoeren.
 $result = $dbh->exec($query);

@@ -15,9 +15,9 @@ include 'controller/movies.php';
 </head>
 
 <body>
-   <!-- <div id="background"> -->
-    <!-- Navigatie balk -->
-    <!-- <div id="navbar">
+   <div id="background">
+    <Navigatie balk> 
+    <div id="navbar">
         <a class="navbar-logo" href="index.html"><img class="logo-nav" src="assets/images/logo.png" alt="logo fletnix"></a>
         <div class="dropdown">
             <a href="movies.html"><div class="dropbtn">Films</div></a>
@@ -31,22 +31,23 @@ include 'controller/movies.php';
         <a class="navbar-link" href="contact.html">Contact</a>
         <a class="navbar-link" href="subscription.html">Abonnementen</a>
         <a class="navbar-link-right" href="account.html"><img class="login-icon" src="assets/images/icon-login.png"
-                                                              alt="icon person"></a>
-    </div> -->
+                                                              alt="icon person"></a> 
+    </div> 
 
     <div class="main">
         <div class="movie-category">
         <?php
-            echo "<h1> </h1>";
+            echo '<h1>' . "GENRE" . '</h1>';
              ?>
             <div class="movie-item">
                 <img alt="movie" class="othermovies" src="assets/images/COCO.jpg">
                 <h2 class="movie-hover-item">
                 <?php
-               echo '<span>' . ValueMovie($dbh) . '</span>' ;
+               echo '<span>' . ValueMovie($dbh, 'title') . '</span>' . '<br>';
+               echo '<span>' . "$" . ValueMovie($dbh, 'price') . '</span>' ;
                  ?>
                     <br/>
-                    <span>Animatie / Kinderen</span>
+                    <span>Animatie</span>
                     <br/>
                     <a href="watch.html">
                         <span>Film kijken</span>
