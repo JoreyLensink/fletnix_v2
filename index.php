@@ -12,21 +12,21 @@
 <div id="background">
     <!-- Navigatie balk -->
     <div id="navbar">
-        <a class="navbar-logo" href="index.html"><img class="logo-nav" src="assets/images/logo.png" alt="logo fletnix"></a>
+        <a class="navbar-logo" href="index.php"><img class="logo-nav" src="assets/images/logo.png" alt="logo fletnix"></a>
         <div class="dropdown">
-            <a href="movies.html">
+            <a href="movies.php">
                 <div class="dropbtn">Films</div>
             </a>
             <div class="dropdown-content">
-                <a href="movies.html#animation">Animatie</a>
-                <a href="movies.html#adventure">Avontuur</a>
-                <a href="movies.html#humour">Humor</a>
+                <a href="movies.php#animation">Animatie</a>
+                <a href="movies.php#adventure">Avontuur</a>
+                <a href="movies.php#humour">Humor</a>
             </div>
         </div>
-        <a class="navbar-link" href="about.html">Over ons</a>
-        <a class="navbar-link" href="contact.html">Contact</a>
-        <a class="navbar-link" href="subscription.html">Abonnementen</a>
-        <a class="navbar-link-right" href="account.html"><img class="login-icon" src="assets/images/icon-login.png"
+        <a class="navbar-link" href="about.php">Over ons</a>
+        <a class="navbar-link" href="contact.php">Contact</a>
+        <a class="navbar-link" href="subscription.php">Abonnementen</a>
+        <a class="navbar-link-right" href="account.php"><img class="login-icon" src="assets/images/icon-login.png"
                                                               alt="icon person"></a>
     </div>
     <div class="main-index">
@@ -51,7 +51,7 @@
                     <br/>
                     <span>Animatie / Kinderen</span>
                     <br/>
-                    <a href="watch.html" >
+                    <a href="watch.php" >
                         <span>Film kijken</span>
                     </a>
                 </h2>
@@ -63,7 +63,7 @@
                     <br/>
                     <span>Avontuur / Animatie</span>
                     <br/>
-                    <a href="watch.html" >
+                    <a href="watch.php" >
                         <span>Film kijken</span>
                     </a>
                 </h2>
@@ -75,7 +75,7 @@
                     <br/>
                     <span>Komedie / Animatie</span>
                     <br/>
-                    <a href="watch.html" >
+                    <a href="watch.php" >
                         <span>Film kijken</span>
                     </a>
                 </h2>
@@ -87,7 +87,7 @@
                     <br/>
                     <span>Kinderen / Komedie</span>
                     <br/>
-                    <a href="watch.html" >
+                    <a href="watch.php" >
                         <span>Film kijken</span>
                     </a>
                 </h2>
@@ -99,7 +99,7 @@
                     <br>
                     <span>Animatie / Kinderen</span>
                     <br>
-                    <a href="watch.html" >
+                    <a href="watch.php" >
                         <span>Film kijken</span>
                     </a>
                 </h2>
@@ -107,7 +107,7 @@
 
         </main>
         <footer>
-            <a class="footer-index" href="subscription.html">
+            <a class="footer-index" href="subscription.php">
                 Klik hier om een account aan te maken
             </a>
         </footer>
