@@ -1,9 +1,6 @@
 <?php
 
-print_r(PDO::getAvailableDrivers());
-
-
-  // Naam van server
+// Naam van server
 $hostname = 'host.docker.internal';
 // Naam van database
 $dbname = 'FLETNIX_DOCENT';
@@ -38,5 +35,8 @@ $users = $dbh->query('SELECT * from fletnix_user');
 // Resultaten per rij printen.
 foreach($users as $row) {
   print_r($row);
+
 }
 ?>
+
+
