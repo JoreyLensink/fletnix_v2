@@ -15,15 +15,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Prepare a select statement
         $sql = "SELECT fletnix_user.userID FROM fletnix_user LEFT JOIN Customer ON fletnix_user.username = Customer.user_name WHERE username = :username";
-// customer_mail_address, lastname, firstname, payment_method, payment_card_number, contract_type, subscription_start, user_name, password, country_name, gender, birth_date
+        // customer_mail_address, lastname, firstname, payment_method, payment_card_number, contract_type, subscription_start, user_name, password, country_name, gender, birth_date
 
 
         if ($stmt = $dbh->prepare($sql)) {
             // Bind variables to the prepared statement as parameters
             $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
 
+
+
+
             // Set parameters
             $param_username = trim($_POST["username"]);
+
 
             // Attempt to execute the prepared statement
             if ($stmt->execute()) {
@@ -55,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $confirm_password_err = "Please confirm password.";
     } else {
         $confirm_password = trim($_POST["confirm_password"]);
-        if (empty($password_err) && ($password != $confirm_password)) {
+        if (empty($password_err) && ($password !== $confirm_password)) {
             $confirm_password_err = "Password did not match.";
         }
     }
@@ -68,35 +72,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt = $dbh->prepare($sql)) {
             // Bind variables to the prepared statement as parameters
-            $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
-            $stmt->bindParam(":email", $param_email, PDO::PARAM_STR);
-            $stmt->bindParam(":password", $param_password, PDO::PARAM_STR);
-            $stmt->bindParam(":firstname", $param_firstname, PDO::PARAM_STR);
-            $stmt->bindParam(":lastname", $param_lastname, PDO::PARAM_STR);
-            $stmt->bindParam(":payment_method", $param_payment_method, PDO::PARAM_STR);
-            $stmt->bindParam(":payment_card_number", $param_payment_card_number, PDO::PARAM_STR);
-            $stmt->bindParam(":contract_type", $param_contract_type, PDO::PARAM_STR);
-            $stmt->bindParam(":subscription_start", $param_subscription_start, PDO::PARAM_STR);
-            $stmt->bindParam(":gender", $param_gender, PDO::PARAM_STR);
-            $stmt->bindParam(":country_name", $param_country_name, PDO::PARAM_STR);
-
-            // Set parameters
-            $param_username = $username;
-            $param_email = $email;
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            echo $password;
-            echo strlen($param_password);
-            // echo $param_password;
-            die();
-            $param_firstname = $firstname;
-            $param_lastname = $lastname;
-            $param_payment_method = $payment_method;
-            $param_payment_card_number = $payment_card_number;
-            $param_contract_type = $contract_type;
-            $param_subscription_start = $subscription_start;
-            $param_gender = $gender;
-            $param_country_name = $country_name;
-
+        
+            $stmt->bindParam(":username", $_POST['username'], PDO::PARAM_STR);
+            $stmt->bindParam(":email", $_POST['email'], PDO::PARAM_STR);
+            $stmt->bindParam(":password", $_POST['password'], PDO::PARAM_STR);
+            $stmt->bindParam(":firstname", $_POST['firstname'], PDO::PARAM_STR);
+            $stmt->bindParam(":lastname", $_POST['lastname'], PDO::PARAM_STR);
+            $stmt->bindParam(":payment_method", $_POST['payment_method'], PDO::PARAM_STR);
+            $stmt->bindParam(":payment_card_number", $_POST['payment_card_number'], PDO::PARAM_STR);
+            $stmt->bindParam(":contract_type", $_POST['contract_type'], PDO::PARAM_STR);
+            $stmt->bindParam(":subscription_start", $_POST['subscription_start'], PDO::PARAM_STR);
+            $stmt->bindParam(":gender", $_POST['gender'], PDO::PARAM_STR);
+            $stmt->bindParam(":country_name", $_POST['country_name'], PDO::PARAM_STR);
 
             // Attempt to execute the prepared statement
             if ($stmt->execute()) {
@@ -140,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <!-- username -->
+            <!-- username -->
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Username</label>
                 <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
@@ -208,7 +195,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <!-- Country -->
             <div class="form-group <?php echo (!empty($country_name_err)) ? 'has-error' : ''; ?>">
-                <label>Gender</label>
+                <label>Country</label>
                 <input type="text" name="country_name" class="form-control" value="<?php echo $country_name; ?>">
                 <span class="help-block"><?php echo $country_name_err; ?></span>
             </div>
