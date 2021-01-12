@@ -33,10 +33,7 @@ $result = $dbh->exec($query);
 $users = $dbh->query('SELECT * from fletnix_user');
 
 // Resultaten per rij printen.
-foreach($users as $row) {
-  print_r($row);
 
-}
 ?>
 
 
