@@ -14,13 +14,13 @@
     <div id="navbar">
         <a class="navbar-logo" href="index.php"><img class="logo-nav" src="assets/images/logo.png" alt="logo fletnix"></a>
         <div class="dropdown">
-            <a href="movies.php">
+            <a href="movies_view.php">
                 <div class="dropbtn">Films</div>
             </a>
             <div class="dropdown-content">
                 <a href="movies.php#animation">Animatie</a>
-                <a href="movies.php#adventure">Avontuur</a>
-                <a href="movies.php#humour">Humor</a>
+                <a href="movies.php#Comedy">Humor</a>
+                <a href="movies.php#Family">Famillie</a>
             </div>
         </div>
         <a class="navbar-link" href="about.php">Over ons</a>

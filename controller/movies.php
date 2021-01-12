@@ -32,26 +32,31 @@ EOD;
 
 // //begin code voor films ophalen
 
+$hoogsteID = 250;
 
-function valueMovie($dbh, $value){
-$users       = $dbh->query('SELECT * FROM Movie WHERE movie_id  <= 99');
-foreach ($users as $row) {
-    return $row[$value] . "<br/>";
+
+
+function valueMovie($dbh, $genre){
+$movies      = $dbh->query("SELECT top (25)   Movie.title, Movie.price, Movie.movie_id 
+FROM Movie
+LEFT JOIN Movie_Genre
+ON Movie.movie_id = Movie_Genre.movie_id
+WHERE Movie_Genre.genre_name = '$genre' ");
+return $movies;
+       
 }
+     
 
-$users->execute();
-}
 
-    
-    
-   
+
+
+
 
 // Query uitvoeren.
 $result = $dbh->exec($query);
 
 // Alle users ophalen.
 $users = $dbh->query('SELECT * from fletnix_user');
-
 
 
 

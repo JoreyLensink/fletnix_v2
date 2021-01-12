@@ -1,5 +1,6 @@
 <?php
 include 'controller/movies.php';
+// movieID($dbh, 'Animation');
 
 ?>
 
@@ -15,51 +16,116 @@ include 'controller/movies.php';
 </head>
 
 <body>
-   <div id="background">
-    <Navigatie balk> 
-    <div id="navbar">
-        <a class="navbar-logo" href="index.html"><img class="logo-nav" src="assets/images/logo.png" alt="logo fletnix"></a>
-        <div class="dropdown">
-            <a href="movies.html"><div class="dropbtn">Films</div></a>
-            <div  class="dropdown-content">
-                <a href="movies.html#animation">Animatie</a>
-                <a href="movies.html#adventure">Avontuur</a>
-                <a href="movies.html#humour">Humor</a>
-            </div>
-        </div>
-        <a class="navbar-link" href="about.html">Over ons</a>
-        <a class="navbar-link" href="contact.html">Contact</a>
-        <a class="navbar-link" href="subscription.html">Abonnementen</a>
-        <a class="navbar-link-right" href="account.html"><img class="login-icon" src="assets/images/icon-login.png"
-                                                              alt="icon person"></a> 
-    </div> 
-
-    <div class="main">
-        <div class="movie-category">
-        <?php
-            echo '<h1>' . "GENRE" . '</h1>';
-             ?>
-            <div class="movie-item">
-                <img alt="movie" class="othermovies" src="assets/images/COCO.jpg">
-                <h2 class="movie-hover-item">
-                <?php
-               echo '<span>' . ValueMovie($dbh, 'title') . '</span>' . '<br>';
-               echo '<span>' . "$" . ValueMovie($dbh, 'price') . '</span>' ;
-                 ?>
-                    <br/>
-                    <span>Animatie</span>
-                    <br/>
-                    <a href="watch.html">
-                        <span>Film kijken</span>
+    <div id="background">
+        <Navigatie balk>
+            <div id="navbar">
+                <a class="navbar-logo" href="index.php"><img class="logo-nav" src="assets/images/logo.png" alt="logo fletnix"></a>
+                <div class="dropdown">
+                    <a href="movies_view.php">
+                        <div class="dropbtn">Films</div>
                     </a>
-                </h2>
+                    <div class="dropdown-content">
+                        <a href="movies.php#animation">Animatie</a>
+                        <a href="movies.php#Comdey">Humor</a>
+                        <a href="movies.php#Family">Famillie</a>
+                    </div>
+                </div>
+                <a class="navbar-link" href="about.php">Over ons</a>
+                <a class="navbar-link" href="contact.php">Contact</a>
+                <a class="navbar-link" href="subscription.php">Abonnementen</a>
+                <a class="navbar-link-right" href="account.php"><img class="login-icon" src="assets/images/icon-login.png" alt="icon person"></a> -->
             </div>
-        </div>
+
+            <div class="main">
+
+            <!-- code coor Animatie films -->
+                <div class="movie-category">
+                    <?php
+                    $Animatie = ValueMovie($dbh, 'Animation' );
+
+
+                    ?>
+                    <?php
+                    echo '<h1>' . 'Animatie' . '</h1>';
+
+                    foreach ($Animatie as $movie) {
+
+                        echo "<div class='movie-item'>";
+                        echo "<img alt='movie' class='othermovies' src='assets/images/COCO.jpg'>";
+                        echo "<h2 class='movie-hover-item'>";
+                        echo "<span> Animatie </span> . <br>";
+                        echo '<span>' . $movie['title'] . '</span>' . '<br>';
+                        echo '<span>' . "$" . $movie['price'] . '</span>';
+                        echo '<a href="watch.php">' . "<span> Film kijken </span>" . '</a>';
+                        echo "</div>";
+                    }
+                    ?>
+                    <br />
+                    <br />
+                    </h2>
+                </div>
+
+
+<!-- code coor Comedy films -->
+                <div class="movie-category">
+                    <?php
+                    $Comedy = ValueMovie($dbh, 'Comedy');
+
+
+                    ?>
+                    <?php
+                    echo '<h1>' . 'Humor' . '</h1>';
+
+                    foreach ($Comedy as $movie) {
+
+                        echo "<div class='movie-item'>";
+                        echo "<img alt='movie' class='othermovies' src='assets/images/Comedy_Film.jpg'>";
+                        echo "<h2 class='movie-hover-item'>";
+                        echo "<span> Humor </span> . <br>";
+                        echo '<span>' . $movie['title'] . '</span>' . '<br>';
+                        echo '<span>' . "$" . $movie['price'] . '</span>';
+                        echo '<a href="watch.php">' . "<span> Film kijken </span>" . '</a>';
+                        echo "</div>";
+                    }
+                    ?>
+                    <br />
+                    <br />
+                    </h2>
+                </div>
+
+                <!-- code coor Family films -->
+                <div class="movie-category">
+                    <?php
+                    $Family = ValueMovie($dbh, 'Family');
+
+
+                    ?>
+                    <?php
+                    echo '<h1>' . 'Famillie' . '</h1>';
+
+                    foreach ($Family as $movie) {
+
+                        echo "<div class='movie-item'>";
+                        echo "<img alt='movie' class='othermovies' src='assets/images/Familie_film.jpg'>";
+                        echo "<h2 class='movie-hover-item'>";
+                        echo "<span> Famillie </span> . <br>";
+                        echo '<span>' . $movie['title'] . '</span>' . '<br>';
+                        echo '<span>' . "$" . $movie['price'] . '</span>';
+                        echo '<a href="watch.php">' . "<span> Film kijken </span>" . '</a>';
+                        echo "</div>";
+                    }
+                    ?>
+                    <br />
+                    <br />
+                    </h2>
+                </div>
+
+            </div>
     </div>
 
-</div>
+    </div>
 
 
 </body>
-</html>
 
+</html>
