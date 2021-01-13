@@ -1,35 +1,30 @@
 <?php
-// Include config file
+// Include config bestand
 require_once "connection.php";
 
-// Define variables and initialize with empty values
+// Definieren en initialiseren met lege waardes
 $user_name = $email = $password = $confirm_password = $firstname = $lastname = $payment_method = $payment_card_number = $contract_type = $subscription_start =  $gender = $country_name = $birth_date = "";
 $user_name_err = $emaile_err = $password_err = $confirm_password_err = $firstname_err = $lastname_err = $payment_method_err = $payment_card_number_err =  $contract_type_err = $subscription_start_err = $gender_err = $country_name_err = "";
 
-// Processing form data when form is submitted
+// Na het verzenden van het Post Form data verwerken
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Validate username
+    // Valideer de gebruikersnaam
     if (empty(trim($_POST["user_name"]))) {
         $user_name_err = "Please enter a user_name.";
     } else {
-        // Prepare a select statement
+        // Maak a select perpare statement
         $sql = "SELECT fletnix_user.userID FROM fletnix_user LEFT JOIN Customer ON fletnix_user.user_name = Customer.user_name WHERE user_name = :user_name";
-        // customer_mail_address, lastname, firstname, payment_method, payment_card_number, contract_type, subscription_start, user_name, password, country_name, gender, birth_date
-
-
+        
         if ($stmt = $dbh->prepare($sql)) {
-            // Bind variables to the prepared statement as parameters
+            // Combineer de varibelen met de prepared statement parameters
             $stmt->bindParam(":user_name", $param_user_name, PDO::PARAM_STR);
 
-
-
-
-            // Set parameters
+            // Zet de parameters
             $param_user_name = trim($_POST["user_name"]);
 
 
-            // Attempt to execute the prepared statement
+            // Probeer de prepared statement uit te voeren
             if ($stmt->execute()) {
                 if ($stmt->rowCount() == 1) {
                     $user_name_err = "This username is already taken.";
@@ -40,12 +35,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Oops! Something went wrong. Please try again later.";
             }
 
-            // Close statement
+            // Sluit statement
             unset($stmt);
         }
     }
 
-    // Validate password
+    // Valideer het wachtwoord
     if (empty(trim($_POST["password"]))) {
         $password_err = "Please enter a password.";
     } elseif (strlen(trim($_POST["password"])) < 6) {
@@ -54,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = trim($_POST["password"]);
     }
 
-    // Validate confirm password
+    // Valideer bevestegings wachtwoord
     if (empty(trim($_POST["confirm_password"]))) {
         $confirm_password_err = "Please confirm password.";
     } else {
@@ -64,14 +59,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Check input errors before inserting in database
+    // Controleer de ingevulde waarders op errors voor het invullen in de  database
     if (empty($user_name_err) && empty($password_err) && empty($confirm_password_err)) {
 
-        // Prepare an insert statement
+        // Prepare de insert statement
         $sql = "INSERT INTO Customer(user_name, customer_mail_address, password, firstname, lastname, payment_method, payment_card_number, contract_type, subscription_start, gender, country_name) VALUES (:username, :email, :password, :firstname, :lastname, :payment_method, :payment_card_number, :contract_type, :subscription_start, :gender, :country_name)";
 
         if ($stmt = $dbh->prepare($sql)) {
-            // Bind variables to the prepared statement as parameters
+            // Combineer de  variabelen naar de  prepared statement als parameters
         
             $stmt->bindParam(":user_name", $_POST['user_name'], PDO::PARAM_STR);
             $stmt->bindParam(":email", $_POST['email'], PDO::PARAM_STR);
@@ -85,31 +80,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindParam(":gender", $_POST['gender'], PDO::PARAM_STR);
             $stmt->bindParam(":country_name", $_POST['country_name'], PDO::PARAM_STR);
 
-            // Attempt to execute the prepared statement
+            // Probeer de prepared statement uit te voeren
             if ($stmt->execute()) {
-                // Redirect to login page
+                // Stuur door naar de login pagina
                 header("location: login_view.php");
             } else {
                 echo "Something went wrong. Please try again later.";
             }
 
-            // Close statement
+            // Sluit het statement
             unset($stmt);
         }
     }
 
-    // Close connection
+    // Sluit de connectie
     unset($dbh);
 }
 
 // landen ophalen
 $country_list = $dbh->prepare("SELECT country_name FROM Country");
 $country_list->execute();
-
 $row = $country_list->fetchAll();
-// var_dump($row);
-
-
-
 
 ?>
