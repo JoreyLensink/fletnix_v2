@@ -18,21 +18,25 @@
                     <!-- code voor top 5 films famillie  -->
                 </div>
                 <?php $besteFamillie = ValueMovie($dbh, 'Animation', 5);
-                ?>
-                <?php
+               
                 echo '<h2>' . 'De 5 meest bekeken Famillie films van de afgelopen 24 uur!' . '</h2>';
 
                 foreach ($besteFamillie as $movie) {
 
                     echo "<div class='movie-item'>";
-                    echo "<img alt='movie' class='othermovies' src='assets/images/Familie_film.jpg'>";
+                    echo "<img alt='movie' class='othermovies' src='assets/images/Comedy_Film.jpg'>";
                     echo "<h2 class='movie-hover-item'>";
-                    echo "<span> Animatie </span> . <br>";
+                    echo "<span> Famillie </span> . <br>";
                     echo '<span>' . $movie['title'] . '</span>' . '<br>';
                     echo '<span>' . "$" . $movie['price'] . '</span>';
-                    echo '<a href="watch.php">' . "<span> Film kijken </span>" . '</a>';
+                    echo"<form action='watch_view.php' method='post' id='submitMovie'>";
+                    echo "<select name='selectedMovie'>" ;  
+                    echo '<option>' . $movie['movie_id'] . '</option>';
+                    echo "</select>";
+                    echo "<input id='submit' type='submit'>";
+                    echo "</form>";
                     echo "</div>";
-                }
+                   }
                 ?>
 
 
