@@ -11,7 +11,7 @@ $directorsInfo      = $dbh->query(" SELECT *
 FROM PERSON
 LEFT JOIN Movie_Director ON Person.person_id = Movie_Director.person_id
 LEFT JOIN Movie ON Movie_Director.movie_id = Movie.movie_id
-WHERE Movie.movie_id = $movieID");
+WHERE Movie.movie_id = $movieID AND Movie_Director.person_id IS NOT NULL");
 return $directorsInfo;
 }
 
@@ -21,7 +21,7 @@ function loadCastInfo($dbh, $movieID) {
     FROM PERSON
     LEFT JOIN Movie_Cast ON Person.person_id = Movie_Cast.person_id
     LEFT JOIN Movie ON Movie_Cast.movie_id = Movie.movie_id
-    WHERE Movie.movie_id = $movieID");
+    WHERE Movie.movie_id = $movieID AND Movie_Cast.person_id IS NOT NULL ");
     return $CastInfo;
     }
 

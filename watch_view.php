@@ -39,11 +39,6 @@ include 'controller/watch.php';
                 break;
             }
 
-            foreach ($cast as $castInfo) {
-                echo '<p><b>' . "Cast: " . '</b>' . $castInfo['firstname'] . ' ' . $castInfo['lastname'] . ',' . '</p>';
-                break;
-            }
-
             ?>
         </div>
     </div>
