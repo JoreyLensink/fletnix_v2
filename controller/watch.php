@@ -1,11 +1,24 @@
 <?php
+require_once "movies.php";
 
-function movieInformtion($dbh, $movieID){
-    $movies      = $dbh->query("SELECT Movie.duration, Movie.publication_year, Movie.movie_id, Person.firstname, Person.firstname
-FROM Movie
-LEFT JOIN Person
-ON Movie.movie_id = Person.person_id
-WHERE Movie.movie_id =  '$movieID' ");
+
+
+
+
+function loadDirectorsInfo($dbh, $movieID) {
+
+$directorsInfo      = $dbh->query(" SELECT * 
+FROM PERSON
+LEFT JOIN Movie_Director ON Person.person_id = Movie_Director.person_id
+LEFT JOIN Movie ON Movie_Director.movie_id = Movie.movie_id
+WHERE Movie.movie_id = $movieID");
+return $directorsInfo;
 }
+
+
+
+
+
+
 
 ?>
