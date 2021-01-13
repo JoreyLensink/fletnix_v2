@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($email_err) && empty($password_err)) {
         // Prepare a select statement
         // Data die je meeneemt van gebruiker
-        $sql = "SELECT customer_mail_address, password FROM Customer WHERE customer_mail_address = :email";
+        $sql = "SELECT customer_mail_address, password user_name FROM Customer WHERE customer_mail_address = :email";
 
 
         if ($stmt = $dbh->prepare($sql)) {
@@ -62,6 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $_SESSION["loggedin"] = true;
                         $_SESSION["email"] = $email;
                         $_SESSION["user_name"] = $user_name;
+                        
 
 
                         // Redirect user to welcome page

@@ -1,33 +1,4 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <title>Over Ons</title>
-    <link rel="icon" href="assets/images/logo-browser.png">
-    <link href="assets/style.css" rel="stylesheet">
-</head>
-
-<body>
-<div id="background" class="background">
-    <!-- Navigatie balk -->
-    <div id="navbar">
-        <a class="navbar-logo" href="index.php"><img class="logo-nav" src="assets/images/logo.png" alt="logo fletnix"></a>
-        <div class="dropdown">
-            <a href="movies_view.php">
-                <div class="dropbtn">Films</div>
-            </a>
-            <div class="dropdown-content">
-                <a href="movies_view.php#animation">Animatie</a>
-                <a href="movies_view.php#Comedy">Humor</a>
-                <a href="movies_view.php#Family">Famillie</a>
-            </div>
-        </div>
-        <a class="navbar-link" href="about.php">Over ons</a>
-        <a class="navbar-link" href="contact.php">Contact</a>
-        <a class="navbar-link" href="subscription.php">Abonnementen</a>
-        <a class="navbar-link-right" href="account.php"><img class="login-icon" src="assets/images/icon-login.png"
-                                                              alt="icon person"></a>
-    </div>
+<?php include 'assets/header.php'; ?>
 
 
     <main class="main-about">
