@@ -70,7 +70,13 @@
                         echo "<span> Famillie </span> . <br>";
                         echo '<span>' . $movie['title'] . '</span>' . '<br>';
                         echo '<span>' . "$" . $movie['price'] . '</span>';
-                        echo '<a href="watch_view.php">' . "<span> Film kijken </span>" . '</a>';
+                        echo"<form action='controller/watch.php' method='post' id='submitMovie'>";
+                        echo "<select name='selectedMovie'>" ;  
+                        echo '<option>' . $movie['movie_id'] . '</option>';
+                        echo"</select>";
+                        echo "<input id='submit' type='submit'>";
+                        echo "</form>";
+                        //echo '<a href="watch_view.php">' . "<span> Film kijken </span>" . '</a>';
                         echo "</div>";
                     }
                     ?>

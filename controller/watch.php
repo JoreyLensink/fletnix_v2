@@ -16,6 +16,9 @@ return $directorsInfo;
 }
 
 
+print_r($_POST);
+
+
 
 
 
