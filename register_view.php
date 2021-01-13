@@ -79,25 +79,26 @@
             </div>
             <!-- Subscripton start -->
             <div class="form-group <?php echo (!empty($subscription_start_err)) ? 'has-error' : ''; ?>">
-                <label>Contract type</label>
+                <label>Start datum</label>
                 <input type="text" name="subscription_start" class="form-control" value="<?php echo $subscription_start; ?>">
                 <span class="help-block"><?php echo $subscription_start_err; ?></span>
             </div>
             <!-- Gender -->
             <div class="form-group <?php echo (!empty($gender_err)) ? 'has-error' : ''; ?>">
-                <label>Gender</label>
-                <input type="text" name="gender" class="form-control" value="<?php echo $gender; ?>">
+                <label>Gender</label><br>
+                <input type="radio" name="gender" class="form-control-radio" value="<?php echo $gender; ?>">Male<br>
+                <input type="radio" name="gender" class="form-control-radio" value="<?php echo $gender; ?>">Female<br>
                 <span class="help-block"><?php echo $gender_err; ?></span>
             </div>
+
             <!-- Country -->
             <div class="form-group <?php echo (!empty($country_name_err)) ? 'has-error' : ''; ?>">
-            <select name="cars" id="cars">
-                <option value="volvo">Volvo</option>
-            </select>
-            <!-- Country -->
-
-                <label>Country</label>
-                <input type="text" name="country_name" class="form-control" value="<?php echo $country_name; ?>">
+                <select name="country_name" class="form-control">
+                    <?php
+                    foreach ($row as $country) {
+                        echo "<option value=" . $country['country_name'] . ">" . $country['country_name'] . "</option>";
+                    } ?>
+                </select>
                 <span class="help-block"><?php echo $country_name_err; ?></span>
             </div>
 
