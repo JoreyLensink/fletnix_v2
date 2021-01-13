@@ -103,6 +103,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // landen ophalen
+$country_list = $dbh->prepare("SELECT country_name FROM Country");
+$country_list->execute();
+
+$row = $country_list->fetchAll();
+// var_dump($row);
+
 
 
 
