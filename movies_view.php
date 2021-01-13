@@ -5,7 +5,8 @@
 
             <!-- code coor Animatie films -->
                 <div class="movie-category">
-                <?php $Animation = ValueMovie($dbh, 'Animation', 25); 
+                <?php $Animation = ValueMovie($dbh, 'Animation', 25);
+                      
                 ?>
                     <?php
                 echo '<h1>' . 'Animatie' . '</h1>';
@@ -18,12 +19,11 @@
                     echo "<span> Animatie </span> . <br>";
                     echo '<span>' . $movie['title'] . '</span>' . '<br>';
                     echo '<span>' . "$" . $movie['price'] . '</span>';
-                    echo '<a href="watch.php">' . "<span> Film kijken </span>" . '</a>';
+                    echo '<a href="watch_view.php">' . "<span> Film kijken </span>" . '</a>';
                     echo "</div>";
                 }
                     ?>
-                    <br />
-                    <br />
+                    
                     </h2>
                 </div>
 
@@ -43,7 +43,7 @@
                        echo "<span> Humor </span> . <br>";
                        echo '<span>' . $movie['title'] . '</span>' . '<br>';
                        echo '<span>' . "$" . $movie['price'] . '</span>';
-                       echo '<a href="watch.php">' . "<span> Film kijken </span>" . '</a>';
+                       echo '<a href="watch_view.php">' . "<span> Film kijken </span>" . '</a>';
                        echo "</div>";
                    }
                     ?>
@@ -70,7 +70,7 @@
                         echo "<span> Famillie </span> . <br>";
                         echo '<span>' . $movie['title'] . '</span>' . '<br>';
                         echo '<span>' . "$" . $movie['price'] . '</span>';
-                        echo '<a href="watch.php">' . "<span> Film kijken </span>" . '</a>';
+                        echo '<a href="watch_view.php">' . "<span> Film kijken </span>" . '</a>';
                         echo "</div>";
                     }
                     ?>
