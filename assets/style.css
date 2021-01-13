@@ -1,9 +1,30 @@
-html, body {
+html,
+body {
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
     font-family: Helvetica;
+}
+
+.help-block {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #737373;
+}
+
+.has-error .help-block,
+.has-error .control-label,
+.has-error .radio,
+.has-error .checkbox,
+.has-error .radio-inline,
+.has-error .checkbox-inline,
+.has-error.radio label,
+.has-error.checkbox label,
+.has-error.radio-inline label,
+.has-error.checkbox-inline label {
+    color: #a94442;
 }
 
 a {
@@ -23,6 +44,7 @@ a {
     background-image: url("images/background.jpg");
 }
 
+
 /* Begin index*/
 
 #header-index p {
@@ -37,7 +59,6 @@ a {
     border: solid black;
     background: darkgrey;
     text-decoration: none;
-
 }
 
 .main-index {
@@ -49,9 +70,12 @@ a {
     box-shadow: 0 0 30px;
 }
 
+
 /*Einde index*/
 
+
 /*Begin Subscription*/
+
 .header-subscription {
     width: 65%;
     margin: 75px auto;
@@ -65,11 +89,11 @@ a {
     border-radius: 50px;
     box-shadow: 0 0 30px;
 }
+
 .main-subscription label {
     display: inline-block;
     width: 150px;
 }
-
 
 #subscription-submit input:last-of-type {
     display: flex;
@@ -80,8 +104,8 @@ a {
 }
 
 
-
 /*Einde Subscription*/
+
 
 /*Begin account*/
 
@@ -109,6 +133,7 @@ a {
 .main-account {
     margin-bottom: 25%;
 }
+
 .main-account label {
     right: 0;
     display: inline-flex;
@@ -118,7 +143,9 @@ a {
 
 /*Einde account*/
 
+
 /* Begin Navigatie Balk */
+
 #navbar {
     height: 75px;
     width: 100%;
@@ -129,6 +156,7 @@ a {
     justify-content: flex-start;
     background-color: #333;
 }
+
 #navbar .navbar-link-right:last-child {
     margin-left: auto;
 }
@@ -162,7 +190,6 @@ a {
     text-decoration: none;
 }
 
-
 .navbar-link-right {
     height: 75px;
     margin-right: 50px;
@@ -178,7 +205,9 @@ a {
     color: black;
 }
 
+
 /* Begin Drop Down */
+
 .dropbtn {
     background-color: #333;
     color: red;
@@ -220,7 +249,9 @@ a {
     color: black;
 }
 
+
 /*Eind Drop Down */
+
 
 /* Eind Navigatie Balk */
 
@@ -232,7 +263,6 @@ a {
     height: 100%;
     margin: 75px auto 50px auto;
     padding-top: 25px;
-
 }
 
 .info-jorey {
@@ -270,6 +300,7 @@ a {
     margin-right: 20px;
 }
 
+
 /* Eind info over ons*/
 
 
@@ -285,9 +316,8 @@ a {
 .main {
     width: 100%;
     margin: 75px auto 0 auto;
-    padding-top: 25px ;
+    padding-top: 25px;
     text-align: center;
-
 }
 
 .movie-header {
@@ -318,14 +348,13 @@ a {
     margin: 20px
 }
 
-
 .othermovies {
     height: 300px;
     width: 215px;
 }
 
-
-.movie-item:hover, .movie-item:hover .othermovies {
+.movie-item:hover,
+.movie-item:hover .othermovies {
     box-shadow: 5px 5px 20px 2px rgba(0, 0, 0, 0.67);
     background-color: rgba(255, 204, 51, 0.7);
     -webkit-transform: scale(1.1);
@@ -351,8 +380,9 @@ h2 span {
 h2 span.spacer {
     padding: 0 5px;
 }
-/* Einde Movie items */
 
+
+/* Einde Movie items */
 
 
 /* Begin Contact Pagina */
@@ -374,7 +404,6 @@ h2 span.spacer {
     padding: 15px;
 }
 
-
 .center aside {
     float: right;
 }
@@ -384,16 +413,20 @@ h2 span.spacer {
     margin-top: 20px;
 }
 
+
 /* Einde Contact*/
 
+
 /* Begin Wacht Pagina */
+
 .main-watch {
     height: 450px;
     width: 80%;
     margin: 80px auto 25px auto;
     padding: 25px 10px 10px 10px;
     box-shadow: 0 0 30px;
-    background-color: #0000009e;;
+    background-color: #0000009e;
+    ;
     border-radius: 56px;
 }
 
@@ -404,14 +437,12 @@ h2 span.spacer {
     display: flex;
 }
 
-
 .play-movie {
     height: 95%;
     width: 80%;
     display: flex;
     margin: auto;
 }
-
 
 .movie-infomation {
     height: 340px;
@@ -438,7 +469,65 @@ h2 span.spacer {
     float: left;
     padding: 10px 10px 10px 25px;
     color: white;
-
 }
 
+
 /* Einde Watch Pagina*/
+
+
+/* Begin Register / Login Pagina */
+
+.main-content {
+    width: 80%;
+    height: 90%;
+    margin: auto;
+}
+
+.form-control {
+    padding: 10px 25px 10px 10px;
+    margin: 7px;
+}
+
+.form-label-login {
+    display: inline-block;
+    width: 100px;
+    margin-right: 25px;
+}
+
+.form-label {
+    display: inline-block;
+    width: 200px;
+    margin-right: 50px;
+}
+
+.form-control-radio {
+    width: 20px;
+    height: 20px;
+}
+
+.register-button {
+    height: 50px;
+    width: 150px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(37, 41, 255);
+    color: white;
+    padding: 10px;
+    display: inline-block;
+    margin: 0 0 0 75px;
+}
+
+.login-button {
+    height: 50px;
+    width: 75px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(37, 41, 255);
+    color: white;
+    padding: 10px;
+    display: inline-block;
+    margin: 0 0 0 140px;
+}
+
+
+/*  Einde Register / Login Pagina */

@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if password is empty
     if (empty(trim($_POST["password"]))) {
-        $password_err = "Please enter your password.";
+        $password_err = "Vul een wachtwoord in.";
     } else {
         $password = trim($_POST["password"]);
     }
@@ -61,20 +61,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         // Store data in session variables
                         $_SESSION["loggedin"] = true;
                         $_SESSION["email"] = $email;
+                        $_SESSION["user_name"] = $user_name;
+
 
                         // Redirect user to welcome page
                         header("location: index.php");
                     } else {
                         // Display an error message if password is not valid
-                        $password_err = "The password you entered was not valid.";
+                        $password_err = "Geen geldig wachtwoord.";
                     }
                 } else {
                     // Display an error message if email doesn't exist
-                    $email_err = "No account found with that email.";
+                    $email_err = "Geen account gevonden met dat emailaddres.";
                     // }
                 }
             } else {
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Oeps! Er ging iets mis. Probeer het later opnieuw.";
             }
 
             // Close statement
