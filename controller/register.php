@@ -22,6 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Zet de parameters
             $param_user_name = trim($_POST["user_name"]);
+            // fout bij password hashen, hash is langer dan 50 karakters maar hash komt op 60 uit.
+            // $param_password = password_hash($password, PASSWORD_DEFAULT);
 
 
             // Probeer de prepared statement uit te voeren
