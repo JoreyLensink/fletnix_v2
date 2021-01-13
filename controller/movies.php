@@ -19,8 +19,6 @@ return $movies;
 
 
 
-// // Query uitvoeren.
-
 
 
 

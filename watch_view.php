@@ -1,4 +1,7 @@
-<?php include 'assets/header.php'; ?>
+<?php include 'assets/header.php';
+include 'controller/watch.php';
+?>
+
 
 <div id="background">
     <main class="main-watch">
@@ -9,26 +12,44 @@
     <div class="movie-infomation">
         <div class="info-left">
             <h3>Samenvatting:</h3>
-            <p>Miguel droomt ervan om een succesvol muzikant te worden. Ondanks dat muziek al generaties lang uit zijn
-                familie wordt verbannen, is het Miguel’s grootste droom om net zo groot te worden als zijn idool,
-                Ernesto de la Cruz. Wanhopig om zijn talent te bewijzen, belandt Miguel op mysterieuze wijze in een
-                prachtige en kleurrijke wereld.</p>
+            <?php
+            $directors =  loadDirectorsInfo($dbh, $_POST['selectedMovie']);
+            $cast = loadCastInfo($dbh, $_POST['selectedMovie']);
+            foreach ($cast as $castInfo) {
+            echo '<p> ' . $castInfo['description'] . '</p>';
+            break;
+            }
+                ?>
         </div>
         <div class="info-right">
             <h3>Informatie:</h3>
-            <p>Coco is een stereoscopische digitale animatiefilm uit 2017, geproduceerd door Pixar Animation Studios en
-                gedistribueerd door Walt Disney Pictures. De film heeft als thema het Mexicaanse feest Dag van de
-                Doden.</p>
-            <p><b>Releasedatum:</b> 27 oktober 2017 (Mexico)</p>
-            <p><b>Directeuren:</b> Adrian Molina, Lee Unkrich</p>
-            <p><b>Duur:</b> 1:49</p>
-            <p><b>Cast:</b>Anthony Gonzalez, Benjamin Braat, Gael Garíca Bernal, Lee Unkrich</p>
-            <p><b>Muziek gecomponeerd door:</b> Michael Giacchino</p>
-            <p><b>Regisseur:</b> John Lasseter, Darla K. Anderson</p>
+            <?php
+
+            foreach ($cast as $castInfo) {
+                echo '<p><b>' . "Releasejaar: " . '</b>' . $castInfo['publication_year'] . '</p>';
+                break;
+            }
+            echo '<p><b>' . "Regiseuren: " . '</b>';
+            foreach ($directors as $director) {
+                echo  $director['firstname'] . ' ' . $director['lastname'] . ', ';
+            }
+            echo '</p>';
+            foreach ($cast as $castInfo) {
+                echo '<p><b>' . "Duur: " . '</b>' . $castInfo['duration'] . '</p>';
+                break;
+            }
+
+            foreach ($cast as $castInfo) {
+                echo '<p><b>' . "Cast: " . '</b>' . $castInfo['firstname'] . ' ' . $castInfo['lastname'] . ',' . '</p>';
+                break;
+            }
+
+            ?>
         </div>
     </div>
-<!--    cast, duur, regiseur, -->
+    <!--    cast, duur, regiseur, -->
 
 </div>
 </body>
+
 </html>
