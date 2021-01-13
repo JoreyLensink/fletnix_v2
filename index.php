@@ -1,3 +1,8 @@
+<?php
+include 'controller/movies.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -36,74 +41,33 @@
                 aan COCO.
                 Ook leuk om met het hele gezin te bekijken. <br>U kunt onderaan de pagina een account aanmaken.</p>
             <h3>Voor als je gewoon even lekker wilt ontspannen</h3>
-            <h2>De 5 meest bekeken film van de afgelopen 24 uur!</h2>
+            
         </header>
 
 
         <main class="main">
             <div class="movie-header">
 
+            <!-- code voor top 5 films famillie  -->
             </div>
-            <div class="movie-item">
-                <img alt="cMovieoco" class="othermovies" src="assets/images/COCO.jpg">
-                <h2 class="movie-hover-item">
-                    <span>Coco</span>
-                    <br/>
-                    <span>Animatie / Kinderen</span>
-                    <br/>
-                    <a href="watch.php" >
-                        <span>Film kijken</span>
-                    </a>
-                </h2>
-            </div>
-            <div class="movie-item">
-                <img alt="Movie" class="othermovies" src="assets/images/tintin.jpg">
-                <h2 class="movie-hover-item">
-                    <span>The Adventures of Tintin</span>
-                    <br/>
-                    <span>Avontuur / Animatie</span>
-                    <br/>
-                    <a href="watch.php" >
-                        <span>Film kijken</span>
-                    </a>
-                </h2>
-            </div>
-            <div class="movie-item">
-                <img alt="Movie" class="othermovies" src="assets/images/sausage-party.jpg">
-                <h2 class="movie-hover-item">
-                    <span>Sausage Party</span>
-                    <br/>
-                    <span>Komedie / Animatie</span>
-                    <br/>
-                    <a href="watch.php" >
-                        <span>Film kijken</span>
-                    </a>
-                </h2>
-            </div>
-            <div class="movie-item">
-                <img alt="Movie" class="othermovies" src="assets/images/paddington2.jpg">
-                <h2 class="movie-hover-item">
-                    <span>Paddington 2</span>
-                    <br/>
-                    <span>Kinderen / Komedie</span>
-                    <br/>
-                    <a href="watch.php" >
-                        <span>Film kijken</span>
-                    </a>
-                </h2>
-            </div>
-            <div class="movie-item">
-                <img alt="Movie" class="othermovies" src="assets/images/storks.jpg">
-                <h2 class="movie-hover-item">
-                    <span>Stronks</span>
-                    <br>
-                    <span>Animatie / Kinderen</span>
-                    <br>
-                    <a href="watch.php" >
-                        <span>Film kijken</span>
-                    </a>
-                </h2>
-            </div>
+            <?php $besteFamillie = ValueMovie($dbh, 'Animation', 5); 
+                ?>
+                    <?php
+                echo '<h2>' . 'De 5 meest bekeken Famillie films van de afgelopen 24 uur!' . '</h2>';
+
+                foreach ($besteFamillie as $movie) {
+
+                    echo "<div class='movie-item'>";
+                    echo "<img alt='movie' class='othermovies' src='assets/images/Familie_film.jpg'>";
+                    echo "<h2 class='movie-hover-item'>";
+                    echo "<span> Animatie </span> . <br>";
+                    echo '<span>' . $movie['title'] . '</span>' . '<br>';
+                    echo '<span>' . "$" . $movie['price'] . '</span>';
+                    echo '<a href="watch.php">' . "<span> Film kijken </span>" . '</a>';
+                    echo "</div>";
+                }
+                    ?>
+           
 
         </main>
         <footer>

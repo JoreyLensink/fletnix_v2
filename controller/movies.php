@@ -36,8 +36,8 @@ $hoogsteID = 250;
 
 
 
-function valueMovie($dbh, $genre){
-$movies      = $dbh->query("SELECT top (25)   Movie.title, Movie.price, Movie.movie_id 
+function valueMovie($dbh, $genre, $aantal){
+$movies      = $dbh->query("SELECT top ($aantal)   Movie.title, Movie.price, Movie.movie_id 
 FROM Movie
 LEFT JOIN Movie_Genre
 ON Movie.movie_id = Movie_Genre.movie_id
@@ -46,7 +46,6 @@ return $movies;
        
 }
      
-
 
 
 
