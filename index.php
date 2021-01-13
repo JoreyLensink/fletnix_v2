@@ -1,18 +1,5 @@
-<?php session_start(); ?>
-
 <?php include 'controller/movies.php'; ?>
 <?php include 'assets/header.php'; ?>
-
-
-
-<?php 
-if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-    echo $_SESSION['user_name'];
-    echo $_SESSION['email'];
-    echo "je hebt een session";
-} else {
-    echo "niet ingelogd";
-} ?>
 
         <div class="main-index">
             <header id="header-index">

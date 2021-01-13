@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="nl">
 
@@ -26,5 +28,17 @@
             <a class="navbar-link" href="about.php">Over ons</a>
             <a class="navbar-link" href="contact.php">Contact</a>
             <a class="navbar-link" href="subscription.php">Abonnementen</a>
-            <a class="navbar-link-right" href="account.php"><img class="login-icon" src="assets/images/icon-login.png" alt="icon person"></a>
+            <?php
+            // Er is een sessie en laat account knop zien
+        if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+            // echo "<a class='navbar-link-right' href='account.php'><img class='login-icon' src='assets/images/icon-login.png' alt='icon person'></a>";
+            echo "<a class='session-register' href='register_view.php'>Uitloggen<a>";
+        } else {
+            // Er is geen sessie en laat registreen knop zien
+            echo "<a class='session-register' href='register_view.php'>Registeer je nu!</a>";
+        }
+
+        ?>
         </div>
+
+        

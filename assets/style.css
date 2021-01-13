@@ -531,3 +531,12 @@ h2 span.spacer {
 
 
 /*  Einde Register / Login Pagina */
+
+.session-register {
+    height: 35;
+    display: inline-block;
+    color: red;
+    margin-left: auto;
+    padding: 20px;
+    font-size: 18px;
+}
