@@ -32,10 +32,10 @@
             // Er is een sessie en laat account knop zien
         if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
             // echo "<a class='navbar-link-right' href='account.php'><img class='login-icon' src='assets/images/icon-login.png' alt='icon person'></a>";
-            echo "<a class='session-register' href='register_view.php'>Uitloggen<a>";
+            echo "<a class='session-register' href='controller/logout.php'>Uitloggen<a>";
         } else {
             // Er is geen sessie en laat registreen knop zien
-            echo "<a class='session-register' href='register_view.php'>Registeer je nu!</a>";
+            echo "<a class='session-register' href='login_view.php'>Inloggen</a>";
         }
 
         ?>
