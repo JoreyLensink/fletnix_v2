@@ -27,7 +27,6 @@
             </div>
             <a class="navbar-link" href="about.php">Over ons</a>
             <a class="navbar-link" href="contact.php">Contact</a>
-            <a class="navbar-link" href="subscription.php">Abonnementen</a>
             <?php
             // Er is een sessie en laat account knop zien
         if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {

@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         // Sla de data op in sesion variabels
                         $_SESSION["loggedin"] = true;
                         $_SESSION["email"] = $email;
-                        // $_SESSION["user_name"] = $user_name;
+                        
                         
 
 
