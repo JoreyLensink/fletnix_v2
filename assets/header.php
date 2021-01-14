@@ -20,9 +20,9 @@
                     <div class="dropbtn">Films</div>
                 </a>
                 <div class="dropdown-content">
-                    <a href="movies.php#animation">Animatie</a>
-                    <a href="movies.php#Comedy">Humor</a>
-                    <a href="movies.php#Family">Famillie</a>
+                    <a href="movies_view.php#animatie">Animatie</a>
+                    <a href="movies_view.php#humor">Humor</a>
+                    <a href="movies_view.php#familie">Famillie</a>
                 </div>
             </div>
             <a class="navbar-link" href="about.php">Over ons</a>
