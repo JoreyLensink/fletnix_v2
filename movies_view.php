@@ -7,7 +7,8 @@
     <div class="movie-category">
         <?php $Animation = ValueMovie($dbh, 'Comedy', 25);
 
-        echo '<h1>' . 'Animatie' . '</h1>';
+        echo "<h1 id='animatie'>" . "animatie" . "</h1>";
+
 
         foreach ($Animation as $movie) {
 
@@ -37,7 +38,7 @@
     <div class="movie-category">
         <?php $Comedy = ValueMovie($dbh, 'Comedy', 25);
 
-        echo '<h1>' . 'Humor' . '</h1>';
+        echo "<h1 id='humor'>" . "Humor" . "</h1>";
 
         foreach ($Comedy as $movie) {
 
@@ -69,7 +70,7 @@
 
         ?>
         <?php
-        echo '<h1>' . 'Famillie' . '</h1>';
+        echo "<h1 id='familie'>" . "familie" . "</h1>";
 
         foreach ($Family as $movie) {
 
